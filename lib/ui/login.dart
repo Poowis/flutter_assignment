@@ -25,32 +25,42 @@ class LoginState extends State<Login> {
               TextFormField(
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.person),
-                  hintText: "User Id",
+                  labelText: "User Id",
+                  hintText: "Please input your User Id",
                 ),
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return "Please input value";
+                    return "กรุณาระบุ user or password";
                   }
                 },
               ),
               TextFormField(
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock),
-                  hintText: "Password",
+                  labelText: "Password",
+                  hintText: "Please input your Password",
                 ),
                 obscureText: true,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return "Please input value";
+                    return "Please input your Password";
+                  } else if (value != "admin") {
+                    return "user or password ไม่ถูกต้อง";
                   }
                 },
               ),
               RaisedButton(
                 child: Text("LOGIN"),
                 onPressed: () {
-                  _formKey.currentState.validate();
-                  print(_formKey.currentState.context);
+                  print(_formKey.currentState.validate());
+                  if (true) {
+                    print("asd");
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                      content: Text("sdfsd"),
+                    ));
+                  };
+                  // Navigator.pushNamed(context, "/main");
                 },
               ),
               Row(
