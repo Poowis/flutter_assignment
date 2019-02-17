@@ -80,7 +80,7 @@ class RegisterState extends State<Register> {
                           );
                           }
                           else{
-                            Navigator.pushReplacementNamed(context, "/");
+                            Navigator.pop(context);
                           }
                         } else {
                           Scaffold.of(context).showSnackBar(
