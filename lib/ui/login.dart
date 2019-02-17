@@ -57,7 +57,7 @@ class LoginState extends State<Login> {
                       child: Text("LOGIN"),
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
-                          if (userId.text != "admin" ||
+                          if (userId.text != "admin" &&
                               password.text != "admin") {
                             Scaffold.of(context).showSnackBar(
                               SnackBar(
@@ -67,8 +67,7 @@ class LoginState extends State<Login> {
                           } else {
                             Navigator.pushReplacementNamed(context, "/main");
                           }
-                        } else if (userId.text.isEmpty ||
-                            password.text.isEmpty) {
+                        } else {
                           Scaffold.of(context).showSnackBar(
                             SnackBar(
                               content: Text("กรุณาระบุ user or password"),
